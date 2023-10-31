@@ -1,0 +1,10 @@
+
+
+1. Splash screen 
+
+Video link : https://www.youtube.com/watch?v=baa0SlEDimk
+
+Important :
+      
+      No need to install Navigation package for splash screen 
+      to move from one screen to other screen…

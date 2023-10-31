@@ -1,0 +1,25 @@
+checklist :
+
+1. add smooth_page_indicator: ^1.0.0 dependency into pubspec.yaml file 
+   for smooth transmission
+2. add lottie: ^1.2.1 dependency into pubspec.yaml file 
+   for smooth transmission
+
+
+video link : https://www.youtube.com/watch?v=SG2WNlQfqyc
+
+Lottie :
+
+Free animation image download link : https://lottiefiles.com
+
+
+Release build flutter Generated:
+
+video link : https://www.youtube.com/watch?v=lyqwc_hYZu8
+document for release build 
+  link 1 : https://docs.flutter.dev/deployment/android
+  link 2 : https://github.com/flutter/flutter/issues/21146
+
+  run this command on Terminal to generate release build flutter
+
+    flutter build apk --build-name 1.2.3 --build-number 99
