@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "870897470897",
+    "project_id": "authtutorial-f575c",
+    "storage_bucket": "authtutorial-f575c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870897470897:android:7321f267f3593eb85b8190",
+        "android_client_info": {
+          "package_name": "com.example.test_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl6sLjB06GwYNTFLhlBT_USPlfmF7CO_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

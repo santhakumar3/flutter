@@ -1,0 +1,207 @@
+
+Login & Register with Firebase
+
+1. login with Firebase using email and password
+2. google Integration for signIn through firebase
+3. Register new user with Firebase using email and password and confirm password
+
+
+video link : https://www.youtube.com/watch?v=4fucdtPwTWI
+
+Checklist :
+
+Step 1 :
+
+        * Open the video link and follow this step by step up to time 15.54 in the video
+        * then open firebase in your browser and follow this step by step in this video
+
+            1. open firebase in chrome browser
+            2. create a project ex: authtutorial
+            3. then uncheck "Enable Google Analytics for this project Recommended" option in firebase
+            4. successfully create a project on firebase
+
+            5. open below firebase auth setup web link
+
+                web link : https://firebase.google.com/docs/auth/flutter/password-auth
+
+            6. and then open one more new link below
+
+                web link : https://firebase.google.com/docs/auth/flutter/start
+
+            7. and then open one more new link below
+
+                web link : https://firebase.google.com/docs/flutter/setup?platform=ios
+
+            8. and then open one more new link below
+
+                web link: https://firebase.google.com/docs/cli#setup_update_cli
+
+            9. you can see macOS option when you open 8 th point link
+
+                * select macOS and scroll down the same page
+                * then copy " curl -sL https://firebase.tools | bash " command and run in your Terminal of your project terminal
+                * you will get "firbase-tools@12.7.0 is now installed " and " All Done!' success message
+            10. Now close your 8th web link tab in your chrome browser
+
+            11. then open the 7th web link in your chrome browser
+
+                * run below command in your project terminal
+
+                    $ firebase login
+
+                * then your will get "  Success! Logged in as santhakumar3490@gmail.com  "
+                  success message in your terminal
+
+            12. then run below command in your project terminal
+
+                 $ dart pub global activate flutterfire_cli
+
+            13. if you get this warning (" export PATH="$PATH":"$HOME/.pub-cache/bin" ") in your project terminal
+
+                * then run below command in your project terminal
+
+                    $ export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+            14. then run below command in your project terminal
+
+                  $ flutterfire configure
+
+            15. after run the 14 th command in your terminal 
+
+                    * then you need to select your firebase project name ( which you recently created project on firebase)
+                      and don't select <create a  new project> option
+
+            16. then terminal showing below question with you
+
+                 Which platforms should your configuration support (use arrow keys & space to select)? 
+                 android
+                 ios
+                 macOS
+                 web
+
+                 important : don't select anyone of this because we need to install the packages for all the platform ( android,ios,macOS,web)
+                             
+                Note : press enter button then all the packages will be installed
+
+            17. this (16 th point) process very very important because flutter make it very easy to setup firebase automatically instead of manual setup like android firebase setup
+
+            18. then open your firebase project and refresh the page.
+
+            19. there you can see the four platforms( android, ios, macOS, web) firebase setup successfully completed on your project firebase account.
+
+            20. then open below web link :
+
+                * web link:  https://firebase.google.com/docs/flutter/setup?platform=ios
+
+                * then go to step 3 on the above web link
+
+                *  then run below command on your project terminal
+
+                    $ flutter pub add firebase_core
+
+                *  then go to your project and open pubspec.yaml file there you can see "  firebase_core: ^2.20.0 " dependency added automatically.
+
+                * then skip step 2 in the above link under Initialize Firebase in your app option
+
+                * then add below link in your ( lib/main.dart ) file 
+
+                    import 'package:firebase_core/firebase_core.dart';
+                    import 'firebase_options.dart';
+
+            21. then go to your project and open main.dart file 
+                and then add below code into void main() function
+
+                example : 
+
+                    void main() async {
+
+                        WidgetsFlutterBinding.ensureInitialized();
+                        await Firebase.initializeApp(
+                            options: DefaultFirebaseOptions.currentPlatform,
+                        );
+
+                        runApp(const MyApp());
+
+                    }
+
+            22. then run the project using below command in your project terminal
+
+                 $ flutter run
+
+                 Note : if the app is run successfully then we can assume firebase setup completed successfully in the project
+
+        
+
+           Here after we are going to work on login setup using email and password from firebase Authentication  between login UI and firebase
+           ====================================================================================================================================
+
+
+           23. open your login_page.dart file and go to signUserIn() method while clic signIn button
+            
+           24. then create auth_page.dart file with AuthPage class
+
+           25. and then run below command in your project terminal
+
+                $ flutter pub add firebase_auth
+            
+           26. and then open your pubspec.dart file and there you can see
+               "  firebase_auth: ^4.12.0 " dependency it will loaded automatically
+               when run 25 th step command.
+
+           27. then go to your project firebase account and then go to Authentication
+
+               * then select get started
+               * then select Email/Password
+               * then enable Email/Password switch 
+               * and then save button
+               * successfully enabled
+
+           28. and then select Users tab in your project firebase authentication page
+
+               * and then add test user email and password manually to check the app
+
+           29. then open below web link
+
+                * web link : https://firebase.google.com/docs/auth/flutter/password-auth
+
+                * scroll down and you can see " Sign in a user with an email address and password "
+                  option and then copy below code of this title
+
+                  example :
+
+                     try {
+                        final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: emailAddress,
+                            password: password
+                        );
+                            } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                            print('No user found for that email.');
+                        } else if (e.code == 'wrong-password') {
+                            print('Wrong password provided for that user.');
+                        }
+                    }
+
+            30. and then go to login_page.dart file and there you can see
+                signUserIn() function then add coding on this page.
+
+
+            31. then run the app and check login with test credentials of firebase..!!!
+
+
+        
+
+
+
+
+                
+
+
+
+
+            
+            
+
+
+            
+
