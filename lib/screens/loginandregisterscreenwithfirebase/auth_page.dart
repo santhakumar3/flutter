@@ -4,6 +4,8 @@ import 'package:test_app/screens/loginandregisterscreenwithfirebase/home_mainpag
 import 'package:test_app/screens/loginandregisterscreenwithfirebase/login_page.dart';
 import 'package:test_app/screens/onboardingscreen/main_home.dart';
 
+import 'login_or_registerpage.dart';
+
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
 
@@ -20,7 +22,8 @@ class AuthPage extends StatelessWidget {
 
           // user is not logged in
           else {
-            return LoginPage();
+            // return LoginPage();
+            return LoginOrRegisterPage();
           }
 
         },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/homepagescreen/mainpage.dart';
 import 'screens/loginandregisterscreenwithfirebase/login_homepage.dart';
 import 'screens/loginandregisterscreenwithfirebase/login_page.dart';
 import 'screens/splashscreen/splash_screen.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: SplashScreen(), // splash screen linked
       // home: OnBoardingScreen(), // onboarding screen linked
-      home: MyAppLogin(),
+      // home: MyAppLogin(), // login and register with firebase and google signIn with firebase
+      home: MainPage(),
     );
   }
 }

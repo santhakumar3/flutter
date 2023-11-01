@@ -189,17 +189,83 @@ Step 1 :
             31. then run the app and check login with test credentials of firebase..!!!
 
 
+            Register the User into the Firebase
+            ===================================
         
+            32. then create Register page.. register_page.dart
 
-
-
-
-                
-
-
-
-
+            33. then follow the instructions of the videos step by step
             
+            
+            34. done successfully and working fine register user into firebase...
+
+            Google SignIn Integration :
+            ===========================
+
+            35. open the below web link in chrome browser
+
+                web link : https://pub.dev/packages/google_sign_in
+
+            36. copy dependency from the above web link page
+               
+                example: google_sign_in: ^6.1.5
+
+                * and then paste it in your pubspec.yaml file dependency section
+
+            37. and then go to Authentication in your firebase project and 
+                then enable Google signIn switch on
+            
+               example :
+
+                    Firebase Authentication -> Sign In Method -> Add new provider -> Google
+
+                    * then enter whatever the name you want in " Public-facing name for project "
+
+                       box..
+
+                    * then select your email in " Support email for project " box
+
+
+            38. iOS :
+
+                  * open [my_project]/ios/Runner/Info.plist in your ios project
+
+                  * then add below code into the above file
+
+                        <key>CFBundleURLTypes</key>
+                            <array>
+                                <dict>
+                                    <key>CFBundleTypeRole</key>
+                                    <string>Editor</string>
+                                    <key>CFBundleURLSchemes</key>
+                                    <array>
+                                        <!-- TODO Replace this value: -->
+                                        <!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+                                        <string>com.googleusercontent.apps.861823949799-vc35cprkp249096uujjn0vvnmcvjppkn</string>
+                                    </array>
+                                </dict>
+                            </array>
+                
+            39. after create auth_service.dart file into services folder 
+
+            40. run below command in your project terminal
+
+                *  $ pod repo update
+
+                * then run this command  $ pod repo remove trunk
+
+                * then run this command $ sudo arch -x86_64 gem install ffi
+
+                * then open iOS folder in the project then run below command
+
+                    $ arch -x86_64 pod install --repo-update
+
+
+
+            41. Important Command below
+
+                * flutter clean
+                * flutter run
             
 
 

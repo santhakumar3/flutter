@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:test_app/screens/loginandregisterscreenwithfirebase/components/my_button.dart';
 import 'package:test_app/screens/loginandregisterscreenwithfirebase/components/my_textfield.dart';
 import 'package:test_app/screens/loginandregisterscreenwithfirebase/components/square_tile.dart';
+import 'package:test_app/screens/loginandregisterscreenwithfirebase/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+
+  final Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -41,16 +44,7 @@ class _LoginPageState extends State<LoginPage> {
       // Navigator.pop(context);
 
 
-
-    if (e.code == 'user-not-found') {
-        // print('No user found for that email.');
-        wrongEmailMessage(e.code);
-      } else if (e.code == 'wrong-password') {
-        // print('Wrong password provided for that user.');
-        wrongPasswordMessage();
-      }else {
-          wrongOtherMessage();
-      }
+   showErrorMessage(e.code);
 
     }
 
@@ -132,6 +126,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // sign in button
                 MyButton(
+                  text: "Sign in",
                   onTap: signUserIn,
                 ),
 
@@ -175,13 +170,21 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // google button
-                    SquareTile(imagePath: 'lib/assets/images/google_logo.png'),
+                    SquareTile(
+                      onTap: () => AuthService().signInWithGoogle(),
+                      imagePath: 'lib/assets/images/google_logo.png'
+                      ),
 
                     const SizedBox(
                       width: 10,
                     ),
                     // apple button
-                    SquareTile(imagePath: 'lib/assets/images/apple_logo.png')
+                    SquareTile(
+                      onTap: (){
+                        
+                      },
+                      imagePath: 'lib/assets/images/apple_logo.png'
+                      )
                   ],
                 ),
 
@@ -201,10 +204,13 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       width: 4,
                     ),
-                    const Text(
-                      'Register now',
-                      style: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: widget.onTap,
+                      child: const Text(
+                        'Register now',
+                        style: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 )
@@ -216,39 +222,18 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
   
-    // wrong email message popup
-
-  void wrongEmailMessage(String msg) {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            title:  Text('Incorrect Email'),
-          );
-        },);
-    }
     
-     // wrong password message popup
 
-  void wrongPasswordMessage() {
+  // error message to user
+
+  void showErrorMessage(String message) {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-          title: Text('Incorrect Password'),
-        );
-      },
-    );
-  }
-
-  // wrong password message popup
-
-  void wrongOtherMessage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          title: Text('Other Error'),
+        return AlertDialog(
+          backgroundColor: Colors.deepPurple,
+          title: Text(message,
+          style: TextStyle(color: Colors.white),),
         );
       },
     );
