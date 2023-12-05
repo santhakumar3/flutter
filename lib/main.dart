@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       // home: OnBoardingScreen(), // onboarding screen linked
       // home: MyAppLogin(), // login and register with firebase and google signIn with firebase
       // home: MainPage(),
+      
       home: MyAppGrocery(),
     );
   }
