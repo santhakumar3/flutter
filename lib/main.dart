@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/foodapp/mainfoodapp.dart';
 import 'package:test_app/screens/grocerystoreappui/myapp.dart';
 import 'package:test_app/screens/homepagescreen/mainpage.dart';
+import 'screens/foodrecipesappui/mainapp.dart';
 import 'screens/loginandregisterscreenwithfirebase/login_homepage.dart';
 import 'screens/loginandregisterscreenwithfirebase/login_page.dart';
 import 'screens/splashscreen/splash_screen.dart';
@@ -26,8 +28,9 @@ class MyApp extends StatelessWidget {
       // home: OnBoardingScreen(), // onboarding screen linked
       // home: MyAppLogin(), // login and register with firebase and google signIn with firebase
       // home: MainPage(),
-      
-      home: MyAppGrocery(),
+      // home: MyAppGrocery(),
+      // home: FoodRecipesApp(),
+      home: MainFoodApp(),
     );
   }
 }

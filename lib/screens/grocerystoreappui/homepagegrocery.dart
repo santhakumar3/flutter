@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wtf_sliding_sheet/wtf_sliding_sheet.dart';
 // import 'package:sliding_sheet/sliding_sheet.dart';
 
 import 'widgets/BottomCartSheet.dart';
@@ -52,17 +51,17 @@ class HomePageGrocery extends StatelessWidget {
                         largeSize: 20,
                         child: InkWell(
                           onTap: () {
-                          showSlidingBottomSheet(
-                            context, builder: (context){
-                              return SlidingSheetDialog(
-                                elevation: 8,
-                                cornerRadius: 16,
-                                builder: (context, state){
-                                  return BottomCartSheet();
-                                }
-                              );
-                            }
-                            );
+                          // showSlidingBottomSheet(
+                          //   context, builder: (context){
+                          //     return SlidingSheetDialog(
+                          //       elevation: 8,
+                          //       cornerRadius: 16,
+                          //       builder: (context, state){
+                          //         return BottomCartSheet();
+                          //       }
+                          //     );
+                          //   }
+                          //   );
                           },
                           child: Icon(
                             CupertinoIcons.cart,
